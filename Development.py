@@ -1,7 +1,7 @@
 from PyQt5.QtGui import *
-from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from begin import *
 
 """
 Файл Development.py является частью модуля Proc.
@@ -11,7 +11,7 @@ from PyQt5.QtCore import *
 
 
 class Development(QMainWindow):
-    def __init__(self, parent):
+    def __init__(self, parent = None):
         """
         Метод определяет Главное окно
         """
@@ -27,25 +27,22 @@ class Development(QMainWindow):
         self.save = self.menu.addAction("Сохранить файл")
         self.open = self.menu.addAction("Открыть файл")
 
-        # Вызов команд при нажатии на кнопки
-        # self.create.triggered.connect(self.CreateFile)
 
         # Создание вложенных списков
         self.add_elem = self.menubar.addMenu("Добавить элемент")
-        self.begin1 = self.add_elem.addAction("Начало")
+        self.begin = self.add_elem.addAction("Начало")
         self.operation = self.add_elem.addAction("Операция")
         self.condition1 = self.add_elem.addAction("Условие")
         self.end = self.add_elem.addAction("Конец")
 
         # Вызов команд при нажатии на кнопки
-        # self.begin1.triggered.connect(self.add_begin)
+        self.begin.triggered.connect(self.add_begin)
 
         self.setObjectName("MainWindow")
         self.setStyleSheet("#MainWindow{border-image:url(grey.png)}")
         self.palette = QPalette()
         self.palette.setBrush(QPalette.Background, QBrush(QPixmap("grey.png")))
         self.setPalette(self.palette)
-        # self.help = Help()
 
         self.indicator_begin = ""
         self.indicator_end = ""
@@ -53,9 +50,10 @@ class Development(QMainWindow):
         self.indicator_begins = []
         self.indicator_ends = []
 
-        self.timer = QTimer()
-        self.timer.setInterval(1000)
-        self.timer.timeout.connect(self.slot_timer_timeout)
-
-    def slot_timer_timeout(self):
-        self.update()
+    def add_begin(self):
+        """
+        Метод создания элемента класса Начало
+        :return: виджет на главном окне
+        """
+        self.begin = Begin(self)
+        self.begin.show()

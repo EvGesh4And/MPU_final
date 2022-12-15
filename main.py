@@ -3,7 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from Development import *
-
+from begin import *
 """
 Файл BlockDiagram.py является частью модуля Proc.
 Основное окно, в котором пользователь может собрать блок-схему.
@@ -43,7 +43,7 @@ class MainWindow(QMainWindow):
         self.tab_main.move(0, 0)
 
         self.tab_controller = Development(self)
-        self.tab_controller1 = Development(self)
+        self.tab_controller1 = Begin(self)
         self.tab_main.addTab(self.tab_controller, "Разработка")
         self.tab_main.addTab(self.tab_controller1, "Исполнение")
 
