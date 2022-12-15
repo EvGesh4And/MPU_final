@@ -17,4 +17,5 @@ class Begin(QWidget):
         self.setGeometry(100, 100, 100, 200)
         self.text = 'Hi'
         self.label = QLabel(self.text, self)
-        self.label.setGeometry(100, 100, 100, 200)
+        self.label.setGeometry(0, 0, 100, 200)
+        self.setStyleSheet("border: 1px solid #05B8CC;")

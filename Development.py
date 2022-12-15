@@ -55,5 +55,12 @@ class Development(QMainWindow):
         Метод создания элемента класса Начало
         :return: виджет на главном окне
         """
+        print('Hee')
         self.begin = Begin(self)
         self.begin.show()
+
+if __name__ == "__main__":
+    app = QApplication([''])
+    window = Development()
+    window.show()
+    app.exec_()
